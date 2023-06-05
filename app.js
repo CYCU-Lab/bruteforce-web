@@ -32,6 +32,8 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
+  console.log(`[${new Date().toISOString()}] 使用者嘗試登入，username: ${username}, password: ${password}`);
+
   if (username === 'admin' && password === 'toodou1234') {
     // 設定登入成功的Session變數
     req.session.loggedIn = true;
