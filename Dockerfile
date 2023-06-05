@@ -5,8 +5,7 @@ FROM node:14
 WORKDIR /app
 
 # 複製專案檔案到容器中
-#COPY package.json package-lock.json /app/
-COPY package.json /app/
+COPY package.json package-lock.json /app/
 
 # 安裝相依套件
 RUN npm install
