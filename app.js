@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
-  if (username && password) {
+  if (username === 'admin' && password === 'toodou1234') {
     // 設定登入成功的Session變數
     req.session.loggedIn = true;
     req.session.username = username;
