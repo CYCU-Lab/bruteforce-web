@@ -38,7 +38,8 @@ app.post('/login', (req, res) => {
     req.session.username = username;
     res.redirect('/dashboard');
   } else {
-    res.send('無效的使用者名稱或密碼');
+    // res.send('無效的使用者名稱或密碼');
+    res.redirect('/');
   }
 });
 
