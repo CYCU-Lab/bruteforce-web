@@ -31,8 +31,10 @@ app.get('/', (req, res) => {
 // 登入請求處理
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
+  // Source IP
+  const clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.ip;
 
-  console.log(`[${new Date().toISOString()}] 使用者嘗試登入，username: ${username}, password: ${password}`);
+  console.log(`[${new Date().toISOString()}] IP: ${clientIp} 使用者嘗試登入，username: ${username}, password: ${password}`);
 
   if (username === 'admin' && password === 'toodou1234') {
     // 設定登入成功的Session變數
